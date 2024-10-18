@@ -1,20 +1,15 @@
-alpha= 'abcdefghijklmnopqrstuvwxyz'
 s = 'azcbobobegghakl'
 orders = []
-i = 0
 
-while i < len(s):
-    j = 0
+while len(s)>0:
     order = ''
-    for j in range(j,26):
-        if (i != len(s) and s[i] == alpha[j]):
+    for i in range(len(s)):
+        if i < len(s)-1 and s[i+1]>=s[i] :
             order += s[i]
-            i += 1
-            while (i < len(s) and s[i] == s[i-1]):
-                order += s[i]
-                i += 1
-        if i == len(s):
-            break
+        else:
+            order += s[i]
+            s=s[i+1:]
+            break  
     orders.append(order)
 
 longest = orders[0]
